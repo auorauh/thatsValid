@@ -3,7 +3,8 @@ import { google } from 'googleapis';
 export async function getServerSideProps( {query} ) {
 
     //Auth
-    const auth = await google.auth.getClient({ scopes: ['https://www.googleapis.com/auth/spreadsheets.readonly'] });
+    const credentials = JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT);
+    const auth = await google.auth.getClient({ credentials,scopes: ['https://www.googleapis.com/auth/spreadsheets.readonly'] });
 
     const sheets = google.sheets({ version: 'v4', auth });
 
