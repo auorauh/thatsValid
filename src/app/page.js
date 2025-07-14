@@ -24,7 +24,7 @@ export async function getServerSideProps({ query }) {
 }
 
 
-export default function Home() {
+export default function Home({ posts }) {
   return (
 <article>
   <h1>Thats Valid</h1>
